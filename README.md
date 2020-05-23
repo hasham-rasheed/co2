@@ -71,7 +71,7 @@ Applicable values for `--transportation-method` are:
    
 2. Second way is to use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) like so:
     ```shell
-    mvn spring-boot:run --start = START_CITY --end = END_CITY --transportation-method = VEHICLE_TYPE
+    mvn spring-boot:run -Dspring-boot.run.arguments="--start=START_CITY, --end=END_CITY, --transportation-method=VEHICLE_TYPE"
     ```
 3. Lastly, you can run via command prompt / terminal:
     ```shell

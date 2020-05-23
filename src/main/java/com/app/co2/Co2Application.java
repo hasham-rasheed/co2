@@ -105,9 +105,9 @@ public class Co2Application implements CommandLineRunner {
                 || !Arrays.toString(args).toLowerCase().contains(TRANSPORT_KEY)) {
             throw new IllegalArgumentException("MISSING OR INVALID ARGUMENT(S)...");
         }
-        newArgs[0] = argsString[1].replaceAll(START_KEY, BLANK).replaceAll(END_KEY,BLANK).trim().replaceAll(EQUAL_SIGN, BLANK);
-        newArgs[1] = argsString[2].replaceAll(START_KEY, BLANK).replaceAll(END_KEY,BLANK).trim().replaceAll(EQUAL_SIGN, BLANK);
-        newArgs[2] = argsString[3].replaceAll(TRANSPORT_KEY, BLANK).trim().replaceAll(EQUAL_SIGN, BLANK);
+        newArgs[0] = argsString[1].trim().replaceAll(START_KEY, BLANK).replaceAll(END_KEY,BLANK).trim().replaceAll(EQUAL_SIGN, BLANK).trim();
+        newArgs[1] = argsString[2].trim().replaceAll(START_KEY, BLANK).replaceAll(END_KEY,BLANK).trim().replaceAll(EQUAL_SIGN, BLANK).trim();
+        newArgs[2] = argsString[3].trim().replaceAll(TRANSPORT_KEY, BLANK).trim().replaceAll(EQUAL_SIGN, BLANK).trim();
 
         System.out.println("returning new args: "+ Arrays.toString(newArgs));
         return newArgs;

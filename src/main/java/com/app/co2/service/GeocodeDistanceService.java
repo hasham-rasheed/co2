@@ -272,11 +272,11 @@ public class GeocodeDistanceService {
      * @return
      */
     public double findEmissionByCarType(final String carType) {
-        final String[] carTypeArray = carType.split("-");
+        final String[] carTypeArray = carType.trim().split("-");
         //get emission by car type in kilograms
         System.out.println("Finding vehicle type: "+carTypeArray[0]);
         double emission = 0;
-        switch(carTypeArray[0]) {
+        switch(carTypeArray[0].trim()) {
             case "small":
                 emission = (SmallCarsEmissions.resolve(carType).getEmission());
                 System.out.println("Car category is small with emission: "+emission+"g");
@@ -297,6 +297,8 @@ public class GeocodeDistanceService {
                 emission = (TrainEmissions.resolve(carType).getEmission());
                 System.out.println("Train with emission: "+emission+"g");
                 return emission;
+            default:
+                System.out.println("Transportation method not found...");
         }
         return emission;
     }
