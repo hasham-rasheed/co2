@@ -10,7 +10,7 @@ Calculates total co2 emissions emitted by different sized vehicles traveling bet
 * [Git](https://git-scm.com/) - Free and Open-Source distributed version control system<br/>
 * [Mockito](https://site.mockito.org/) - Open source testing framework for Java released under the MIT License
 
-###Prerequisites
+### Prerequisites
 This application uses [openrouteservice](https://openrouteservice.org/) to get the distance between 2 cities. 
 Please create a free account to get an API Token. You will need to save this API Token in an environment variable called `ORS_TOKEN`.
 Alternatively, you can add this API token in `application.properties` with key `fallback.api.key`.
@@ -18,10 +18,10 @@ Alternatively, you can add this API token in `application.properties` with key `
 Apart from this, you will need to set up JDK 8 and Maven along with their environment variables.
 
 ### Building and running the application locally
-####Build
+#### Build
 You can build the application by simply running `mvn clean install`
 
-####Running the application
+#### Running the application
 There are several ways to run this application on your local machine. 
 In any case, the program will require the following arguments at runtime:
 
