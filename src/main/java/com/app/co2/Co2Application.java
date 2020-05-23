@@ -103,7 +103,7 @@ public class Co2Application implements CommandLineRunner {
         if(!Arrays.toString(args).toLowerCase().contains(START_KEY)
                 || !Arrays.toString(args).toLowerCase().contains(END_KEY)
                 || !Arrays.toString(args).toLowerCase().contains(TRANSPORT_KEY)) {
-            throw new IllegalArgumentException("MISSING OR INVALID ARGUMENT...");
+            throw new IllegalArgumentException("MISSING OR INVALID ARGUMENT(S)...");
         }
         newArgs[0] = argsString[1].replaceAll(START_KEY, BLANK).replaceAll(END_KEY,BLANK).trim().replaceAll(EQUAL_SIGN, BLANK);
         newArgs[1] = argsString[2].replaceAll(START_KEY, BLANK).replaceAll(END_KEY,BLANK).trim().replaceAll(EQUAL_SIGN, BLANK);
