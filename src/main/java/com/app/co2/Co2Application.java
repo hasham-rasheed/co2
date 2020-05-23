@@ -2,7 +2,6 @@ package com.app.co2;
 
 import com.app.co2.model.city.Coordinates;
 import com.app.co2.service.GeocodeDistanceService;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
