@@ -184,6 +184,9 @@ public class GeocodeDistanceService {
      * @return
      */
     private StringBuilder buildTimeOrDistanceRequest(final Coordinates[] srcDest) {
+        if(srcDest == null || srcDest.length < 2) {
+            throw new IllegalArgumentException("Source or destination city missing.");
+        }
         //request sample. Longitude is at index 0 in array e.g. [lng, lat], [lng, lat]...
         //{"locations":[[73.043415, 33.721545], [74.343554, 31.549671]],"metrics":["duration"]}
         final StringBuilder sb = new StringBuilder();

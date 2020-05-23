@@ -44,7 +44,6 @@ public class Co2Application implements CommandLineRunner {
     public void run(final String... args) {
         if(extractArgs(args) == null) {
             throw new IllegalArgumentException("MISSING ARGUMENTS...");
-          
         }
         final String[] cleanArgs = extractArgs(args);
         for(final String arg : cleanArgs) {
