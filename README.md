@@ -15,6 +15,7 @@ This application uses [openrouteservice](https://openrouteservice.org/) to get t
 Please create a free account to get an API Token. You will need to save this API Token in an environment variable called `ORS_TOKEN`.
 Alternatively, you can add this API token in `application.properties` with key `fallback.api.key`.
 
+Apart from this, you will need to set up JDK 8 and Maven along with their environment variables.
 
 ### Building and running the application locally
 ####Build
