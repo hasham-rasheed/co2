@@ -1,6 +1,8 @@
 package com.app.co2.emissions;
 
-public enum LargeCarsEmissions { 
+import java.util.Arrays;
+
+public enum LargeCarsEmissions {
     
     LARGE_DIESEL_CAR("large-diesel-car", 142),
     LARGE_PETROL_CAR("large-petrol-car", 142),
@@ -38,11 +40,9 @@ public enum LargeCarsEmissions {
      * @return SmallCarsEmissions Enum
      */
     public static LargeCarsEmissions resolve(final String carType) {
-        for(LargeCarsEmissions emission : LargeCarsEmissions.values()) {
-            if(emission.getCarType().equalsIgnoreCase(carType)) {
-                return emission;
-            }
-        }
-        throw new IllegalArgumentException("Unsupported Car Type Provided: "+carType);
+        return Arrays.stream(LargeCarsEmissions.values())
+                .filter(e -> e.getCarType().equals(carType))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException(String.format("Unsupported type %s.", carType)));
     }
 }

@@ -1,5 +1,7 @@
 package com.app.co2.emissions;
 
+import java.util.Arrays;
+
 public enum MediumCarsEmissions {
 
     MEDIUM_DIESEL_CAR("medium-diesel-car", 142),
@@ -38,11 +40,9 @@ public enum MediumCarsEmissions {
      * @return SmallCarsEmissions Enum
      */
     public static MediumCarsEmissions resolve(final String carType) {
-        for(MediumCarsEmissions emission : MediumCarsEmissions.values()) {
-            if(emission.getCarType().equalsIgnoreCase(carType)) {
-                return emission;
-            }
-        }
-        throw new IllegalArgumentException("Unsupported Car Type Provided: "+carType);
+        return Arrays.stream(MediumCarsEmissions.values())
+                .filter(e -> e.getCarType().equals(carType))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException(String.format("Unsupported type %s.", carType)));
     }
 }

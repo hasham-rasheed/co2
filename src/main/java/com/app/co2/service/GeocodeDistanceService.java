@@ -1,8 +1,6 @@
 package com.app.co2.service;
 
-import com.app.co2.emissions.LargeCarsEmissions;
-import com.app.co2.emissions.MediumCarsEmissions;
-import com.app.co2.emissions.SmallCarsEmissions;
+import com.app.co2.emissions.*;
 import com.app.co2.model.city.CityData;
 import com.app.co2.model.city.Coordinates;
 import com.app.co2.model.city.Features;
@@ -276,7 +274,7 @@ public class GeocodeDistanceService {
     public double findEmissionByCarType(final String carType) {
         final String[] carTypeArray = carType.split("-");
         //get emission by car type in kilograms
-        System.out.println("Finding car type: "+carTypeArray[0]);
+        System.out.println("Finding vehicle type: "+carTypeArray[0]);
         double emission = 0;
         switch(carTypeArray[0]) {
             case "small":
@@ -290,6 +288,14 @@ public class GeocodeDistanceService {
             case "large":
                 emission = (LargeCarsEmissions.resolve(carType).getEmission());
                 System.out.println("Car category is large with emission: "+emission+"g");
+                return emission;
+            case "bus":
+                emission = (BusEmissions.resolve(carType).getEmission());
+                System.out.println("Bus with emission: "+emission+"g");
+                return emission;
+            case "train":
+                emission = (TrainEmissions.resolve(carType).getEmission());
+                System.out.println("Train with emission: "+emission+"g");
                 return emission;
         }
         return emission;

@@ -2,18 +2,17 @@ package com.app.co2.emissions;
 
 import java.util.Arrays;
 
-public enum SmallCarsEmissions {
+/**
+ * @author Hasham Rasheed
+ */
+public enum BusEmissions {
 
-    SMALL_DIESEL_CAR("small-diesel-car", 142),
-    SMALL_PETROL_CAR("small-petrol-car", 142),
-    SMALL_PLUGIN_HYBRID_CAR("small-plugin-hybrid-car", 142),
-    SMALL_ELECTRIC_CAR("small-electric-car", 142);
+    BUS("bus", 27);
 
     private String carType;
     private double emission;
 
-
-    SmallCarsEmissions(final String carType, final double emission) {
+    BusEmissions(final String carType, final double emission) {
         this.carType = carType;
         this.emission = emission;
     }
@@ -22,7 +21,7 @@ public enum SmallCarsEmissions {
         return carType;
     }
 
-    public void setCarType(final String carType) {
+    public void setCarType(String carType) {
         this.carType = carType;
     }
 
@@ -30,17 +29,17 @@ public enum SmallCarsEmissions {
         return emission;
     }
 
-    public void setEmission(final double emission) {
+    public void setEmission(double emission) {
         this.emission = emission;
     }
 
     /**
      * Resolve to Enum by provided carType in String format
      * @param carType
-     * @return SmallCarsEmissions Enum
+     * @return BusEmissions Enum
      */
-    public static SmallCarsEmissions resolve(final String carType) {
-        return Arrays.stream(SmallCarsEmissions.values())
+    public static BusEmissions resolve(final String carType) {
+        return Arrays.stream(BusEmissions.values())
                 .filter(e -> e.getCarType().equals(carType))
                 .findFirst()
                 .orElseThrow(() -> new IllegalStateException(String.format("Unsupported type %s.", carType)));
